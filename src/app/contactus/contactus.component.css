@@ -1,0 +1,17 @@
+a{
+    margin-left: 20px;
+}
+header nav a{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.jumbotron{
+    background-image: url(../../assets/images/jum1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:gray;
+}
+.back{
+    background-image: url("../../assets/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

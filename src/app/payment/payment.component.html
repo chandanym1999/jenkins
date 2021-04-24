@@ -1,0 +1,55 @@
+<article class="container" id="content" #content>
+    <img src="../../assets/images/logo-removebg-preview.png" height="60px" width="100px"><h3>EKitchen</h3>
+    <h2 class="text-center"><strong>Receipt:</strong></h2>
+    <table class="table borderless">
+        <tr class="bg-secondary">
+            <th>Constraint</th>
+            <th>Details</th>
+            
+        </tr>
+        <tr>              
+            <td>Name :</td>
+            <td>{{customer[0].name}}</td>
+        </tr>
+        <tr>              
+            <td>Email :</td>
+            <td>{{customer[0].email}}</td>
+        </tr>
+        <tr>              
+            <td>Phone :</td>
+            <td>{{customer[0].mobile}}</td>
+        </tr>
+        <tr>              
+            <td>Address :</td>
+            <td>{{customer[0].address}}</td>
+        </tr>
+        <tr>              
+            <td>Payment :</td>
+            <td>{{payment}}</td>
+        </tr>
+        <tr>              
+            <td>Products :</td>
+        </tr>
+        <tr *ngFor='let cart of cart'>
+            
+            <td></td>
+            <td><ul><li>{{cart.quantity}}kg of {{cart.title}}</li></ul></td>
+            
+        </tr>
+        <tr>              
+            <td>Amount :</td>
+            <td>{{amount}}</td>
+        </tr>
+        <hr>
+        <tr>
+            <td colspan="2"><strong>Thank You for shopping with us... You will recieve your order shortly...</strong></td>
+        </tr>
+        <tr>
+            <td><button class="btn btn-secondary" (click)="back();">Back</button></td>
+            <td><button printSectionId="content" class="btn btn-secondary" printTitle="My Angular Print Media" ngxPrint [useExistingCss]="true">Print</button></td>
+        </tr>
+
+        
+       
+    </table>
+</article>

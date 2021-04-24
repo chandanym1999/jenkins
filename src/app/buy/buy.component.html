@@ -1,0 +1,112 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 20px;">
+        <a class="navbar-brand" href="#"><img src="../../assets/images/logo-removebg-preview.png" height="50px" width="80px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse hover" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link btn btn-secondary" [routerLink]="['/home']"><i class="bi bi-house-door-fill"></i>Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link btn btn-secondary" [routerLink]="['/product']"><i class="bi bi-film"></i>Products</a>
+              </li>
+            
+            <li class="nav-item active">
+                <a class="nav-link btn btn-secondary" [routerLink]="['/aboutus']"><i class="bi bi-file-person-fill"></i>About US</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link btn btn-secondary" [routerLink]="['/contactus']"><i class="bi bi-telephone-fill"></i>Contact Us</a>
+              </li>
+              
+          </ul>
+          
+        </div>
+      </nav>
+</header>
+
+<article class="container">
+    <div class="jumbotron">
+        <h1 class="text-center"><strong>Enter Details<br></strong></h1>
+        <nav class="bg-transparent text-center">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/product']">Product  </a></li>
+              <li class="breadcrumb-item active" aria-current="page">Details</li>
+            </ol>
+         </nav>
+    </div>
+
+    <div class="col-md-7">
+        <form class="text-secondary" name="details">
+            <div class="form-group">
+                Your Name:<br>
+                <input type="text" class="form-control" name="name" [(ngModel)]="name" ng-required>
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="email" aria-describedby="emailHelp">
+                
+              </div>
+            
+            <div class="form-group">
+                Mobile:<br>
+                <input type="tel" class="form-control" name="mob" [(ngModel)]="mob" required>
+            </div>
+            <div class="form-group">
+                Address:<br>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="add1" [(ngModel)]="add1" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                Street:<br>
+                <input type="text" class="form-control" name="add2" [(ngModel)]="add2" required>
+            </div>
+            <div class="form-group">
+                City:<br>
+                <input type="text" class="form-control" name="city" [(ngModel)]="city" required>
+            </div>
+            <div class="form-group">
+                State:<br>
+                <input type="text" class="form-control" name="state" [(ngModel)]="state" required>
+            </div>
+            
+            <fieldset class="form-group row">
+                <legend class="col-form-label col-sm-2 float-sm-left pt-0">Payment</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" [(ngModel)]="payment" name="payment" id="cod" value="option1" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                      Cash On Delivery
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment" id="online" value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                      Online Payment
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            <button type="submit" [disabled]="!name||!mob||!add1||!add2||!city||!state" class="btn btn-primary mb-2" (click)="pay();">Proceed</button>
+            
+        </form>
+    </div>
+    
+</article>
+
+
+<footer>
+    <div class="row sgn" style="margin-top: 20px;">
+        <div class="col-md-12 text-center bg-secondary" style="margin-top: 20px; padding-bottom: 20px; padding-top: 20px; ">
+            <p style="font-weight: bold;">A place where you can save more with us and feed healthy to your family...</p>
+        </div>
+    </div>
+    <div class="row  text-center text-white bg-dark">
+        <div class="col-md-12">
+            <p style="padding-top: 10px; font-weight: bold;">&copy; copyrights : E-Kitchen</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,16 @@
+body { margin-top:20px; }
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+a{
+    margin-left: 20px;
+}
+header nav a{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.jumbotron{
+    background-image: url(../../assets/images/jum.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:gray;
+}

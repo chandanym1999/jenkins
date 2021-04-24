@@ -1,0 +1,70 @@
+<div class="back">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary" style="margin-bottom: 20px;">
+            <a class="navbar-brand" href="#"><img src="../../assets/images/logo-removebg-preview.png" height="50px" width="80px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse hover" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                
+                  <li class="nav-item active">
+                    <a class="nav-link btn btn-secondary" [routerLink]="['/home']"><i class="bi bi-telephone-fill"></i>Log Out</a>
+                  </li>
+              </ul>
+              
+            </div>
+          </nav>
+    </header>
+    
+    <article class="container">
+      <div class="parts container row" style="padding-bottom: 10px; margin-top: 50px; width: 101%;">
+        <div class="row">
+          
+            <div class="col-md-9 text-center" style="margin-top: 50px; padding-bottom: 30px;">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" [(ngModel)]='name' aria-describedby="emailHelp">
+                 
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Price</label>
+                  <input type="text" class="form-control" name="price" [(ngModel)]='price' id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Image</label><br>
+                    <input type="file"  (change)="onfilechange($event);">
+                </div>
+                <a [routerLink]="['/adminhome']"><button type="submit" class="btn btn-secondary" style="margin-right: 10px;">Back</button></a>
+                <button type="submit" [disabled]="!price||!name" class="btn btn-secondary" (click)='add();'>Add</button>
+                
+                
+              </form>
+            </div>
+            <div class="col-md-2 text-center" style="padding-bottom: 30px;">
+              <img src="../../assets/images/admin.jpg" height="400px" width="500px">
+          </div>
+            
+        </div>
+    </div>
+        
+        
+      
+    </article>
+    
+    <footer>
+        <div class="row sgn" style="margin-top: 20px;">
+            <div class="col-md-12 text-center bg-secondary" style="margin-top: 20px; padding-bottom: 20px; padding-top: 20px; ">
+                <p style="font-weight: bold;">A place where you can save more with us and feed healthy to your family...</p>
+            </div>
+        </div>
+        <div class="row  text-center text-white bg-dark">
+            <div class="col-md-12">
+                <p style="padding-top: 10px; font-weight: bold;">&copy; copyrights : E-Kitchen</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+    

@@ -1,0 +1,83 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 20px;">
+      <a class="navbar-brand" href="#"><img src="../../assets/images/logo-removebg-preview.png" height="50px" width="80px"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse hover" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link btn btn-secondary" [routerLink]="['/home']"><i class="bi bi-house-door-fill"></i>Home </a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link btn btn-secondary" [routerLink]="['/product']"><i class="bi bi-film"></i>Products</a>
+            </li>
+            
+          <li class="nav-item active">
+              <a class="nav-link btn btn-secondary" [routerLink]="['/aboutus']"><i class="bi bi-file-person-fill"></i>About US</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link btn btn-secondary" [routerLink]="['/contactus']"><i class="bi bi-telephone-fill"></i>Contact Us</a>
+            </li>
+        </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link btn btn-secondary" [routerLink]="['/admin']"><i class="bi bi-tv-fill"></i>Admin</a>
+              </li>
+            <li class="nav-item active">
+              <a class="nav-link btn btn-secondary" [routerLink]="['/cart']"><i class="bi bi-telephone-fill"></i>Cart {{cartcount}}</a>
+            </li>
+            
+        </ul>
+        
+      </div>
+    </nav>
+</header>
+
+<article class="container">
+    <div class="jumbotron">
+        <h1 class="text-center"><strong>Product Details:<br></strong></h1>
+        <nav class="bg-transparent text-center">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+         </nav>
+    </div>
+
+    <div class="form-group col-md-12">
+      <input type="text" class="form-control"  placeholder="Search" [(ngModel)]="searchedKeyword">
+    </div>
+  
+
+    <div class="container">
+        <div class="row"> 
+ 
+          <div class="col-md-4 mx-auto my-5" *ngFor="let card of cards | filter:searchedKeyword">
+            <div class="card" style="width: 18rem; border-radius: 10px;">
+                <img [src]="card.img" [height]='height' [width]='width' [style.borderRadius.px]='radius' class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{card.title|uppercase}}</h5>
+                  <p class="card-text">{{card.price|currency:'INR'|uppercase}}</p>
+                  <button (click)="addtocart(card.id);" class="btn btn-secondary hover">Add To Cart</button>
+                </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+</article>
+
+<footer>
+    <div class="row sgn" style="margin-top: 20px;">
+        <div class="col-md-12 text-center bg-secondary" style="margin-top: 20px; padding-bottom: 20px; padding-top: 20px; ">
+            <p style="font-weight: bold;">A place where you can save more with us and feed healthy to your family...</p>
+        </div>
+    </div>
+    <div class="row  text-center text-white bg-dark">
+        <div class="col-md-12">
+            <p style="padding-top: 10px; font-weight: bold;">&copy; copyrights : E-Kitchen</p>
+        </div>
+    </div>
+</footer>

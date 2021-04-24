@@ -1,0 +1,106 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 20px;">
+        <a class="navbar-brand" href="#"><img src="../../assets/images/logo-removebg-preview.png" height="50px" width="80px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse hover" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link btn btn-secondary" [routerLink]="['/home']"><i class="bi bi-house-door-fill"></i>Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link btn btn-secondary" [routerLink]="['/product']"><i class="bi bi-film"></i>Products</a>
+              </li>
+            
+            <li class="nav-item active">
+                <a class="nav-link btn btn-secondary" [routerLink]="['/aboutus']"><i class="bi bi-file-person-fill"></i>About US</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link btn btn-secondary" [routerLink]="['/contactus']"><i class="bi bi-telephone-fill"></i>Contact Us</a>
+              </li>
+          </ul>
+          
+        </div>
+      </nav>
+</header>
+
+<article class="container">
+    <div class="jumbotron">
+        <h1 class="text-center"><strong>Cart<br></strong></h1>
+        <nav class="bg-transparent text-center">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/product']">Product  </a></li>
+              <li class="breadcrumb-item active" aria-current="page">Cart</li>
+            </ol>
+         </nav>
+    </div>
+    <div class="container">
+        <div *ngIf='cartlength==0'>
+            <p class="text-center"><strong>Nothing in the cart.....</strong></p>
+        </div>
+        <div *ngIf='cartlength!=0'>
+        <table class="table">
+            <tr class="bg-secondary">
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Delete</th>
+                
+            </tr>
+            <tr *ngFor="let card of product">              
+                <td><img [src]="card.img" [height]='height' [width]='width' [style.borderRadius.px]='radius'></td>
+                <td>{{card.title}}</td>
+                <td>{{card.price|currency:'INR'}}</td>
+                <td><input #number type="number" min="1" max="10" value="1"  (change)="calculate(card.id,number.value);"></td>
+                <td>{{card.qprice}}</td>
+                <td><button class="btn btn-secondary" (click)="delete(card.id);">Delete</button></td>
+            </tr>
+            <tr>
+                <td colspan="4"><strong>Total</strong></td>
+                <td>{{total}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4"><strong>GST(10%)</strong></td>
+                <td>{{total*0.1}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4"><strong>Grand Total</strong></td>
+                <td>{{total+(total*0.1)}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="6">
+              
+                    <button class="btn btn-secondary" (click)="buy();">Buy</button>
+          
+                </td>
+            </tr>
+            
+           
+        </table>
+        </div>
+
+            
+        </div>
+
+</article>
+
+<footer>
+    <div class="row sgn" style="margin-top: 20px;">
+        <div class="col-md-12 text-center bg-secondary" style="margin-top: 20px; padding-bottom: 20px; padding-top: 20px; ">
+            <p style="font-weight: bold;">A place where you can save more with us and feed healthy to your family...</p>
+        </div>
+    </div>
+    <div class="row  text-center text-white bg-dark">
+        <div class="col-md-12">
+            <p style="padding-top: 10px; font-weight: bold;">&copy; copyrights : E-Kitchen</p>
+        </div>
+    </div>
+</footer>
